@@ -1,5 +1,8 @@
 # TaskBrio
 
+![Banner](https://github.com/user-attachments/assets/6664653d-2209-445f-baec-9d2b2226e273)
+
+
 TaskBrio is a minimalist and intuitive ToDo application designed to help users manage their tasks effectively. With a sleek interface and powerful features, TaskBrio makes task management effortless and enjoyable.
 
 ## Features
