@@ -17,11 +17,11 @@ const Footer = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a href="www.abyjose.live" target="_blank" rel="noopener noreferrer" className="nav-link">Developer</a>
+            <a href="https://www.abyjose.live/" target="_blank" rel="noopener noreferrer" className="nav-link">Developer</a>
           </li>
         </ul>
       </nav>
-      <p className="footer-text">&copy; 2024 TaskBrio. All rights reserved. Developed by <a href="www.abyjose.live">Aby Jose</a>.</p>
+      <p className="footer-text">&copy; 2024 TaskBrio. All rights reserved. Developed by <a href="https://www.abyjose.live">Aby Jose</a>.</p>
     </footer>
   );
 };
