@@ -1,38 +1,344 @@
-.App {
-  text-align: center;
+/* Global reset to remove default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Base styles for the body: dark background and light text */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212;
+  overflow-y: hidden;
+  color: #e0e0e0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Main container to center the app and give it a card-like look */
+.app-container {
+  width: 90%;
+  max-height: 90vh;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header section with centered title and date-time display */
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Align the date and time horizontally */
+.datetime-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Styling for the current date */
+.current-date {
+  text-align: left;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Styling for the current time */
+.current-time {
+  text-align: right;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Flexbox for stacking input and button vertically */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Task input section with space between input field and button */
+.task-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Make the input field grow to fill available space */
+.task-input input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #0b53d8;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* Button styling for adding tasks */
+.input-section .addBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background-color: #0b53d8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 100%;
+}
+
+/* Button hover effect */
+.input-section .addBtn:hover {
+  background-color: #0a46b5;
+}
+
+/* Flexbox to align date and time pickers next to each other */
+.date-time-pickers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Styling for date and time input fields */
+.date-time-pickers input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 12px;
+  border: 2px solid #0b53d8;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* Remove margin on the last picker */
+.date-time-pickers input:last-child {
+  margin-right: 0;
+}
+
+/* Category navigation buttons centered below the input section */
+.category-nav {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Category buttons with padding and margin */
+.category-btn {
+  width: 100%;
+  margin: 0 5px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Change background color on hover */
+.category-btn:hover {
+  background-color: #4a4a4a;
+}
+
+/* Active filter button style */
+.category-btn.active {
+  background-color: #0b53d8;
+}
+
+/* Task section takes up the remaining space in the layout */
+.task-section {
+  flex: 1;
+  padding: 1px 0;
+}
+
+/* Center the section title */
+.task-section h2 {
+  text-align: center;
+}
+
+/* Blue color for the task list header */
+.task-header {
+  color: #0b53d8;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Scrollable task list with hidden scrollbars */
+.task-list {
+  margin-top: 30px;
+  max-height: 50vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.task-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Task items with no list-style */
+.task-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Individual task item with padding and border */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for task items */
+.task-item:hover {
+  background-color: #4a4a4a;
+}
+
+/* Layout for task information */
+.task-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Space between check icon and task details */
+.task-check {
+  margin-right: 15px;
+  font-size: 1.5rem;
+}
+
+/* Flex column for title and deadline */
+.task-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bold task title */
+.task-title {
+  font-weight: bold;
+}
+
+/* Deadline in smaller font and lighter color */
+.task-deadline {
+  margin-top: 5px;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+/* Styling for completed tasks */
+.completed {
+  text-decoration: line-through;
+  color: rgb(7, 117, 12);
+}
+
+/* Icons for task actions */
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* General icon styling */
+.icon {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #0b53d8;
+  font-size: 1.5rem;
+}
+
+/* Hover effect for icons */
+.icon:hover {
+  color: #0a46b5;
+}
+
+/* Red color for delete icon */
+.delete {
+  color: red;
+}
+
+/* Green color for completed icon */
+.completed-icon {
+  color: rgb(7, 117, 12);
+}
+
+/* Gold color for important icon */
+.important {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+/* Grey color for non-important icon */
+.nimportant {
+  color: grey;
+  font-size: 1.5rem;
+}
+
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  
+  /* Enable vertical scrolling */
+  body {
+    overflow-y: scroll;
   }
-  to {
-    transform: rotate(360deg);
+
+  /* Adjust app container for smaller screens */
+  .app-container {
+    max-height: 100%;
+    margin: 20px;
+  }
+
+  /* Adjust category buttons for smaller screens */
+  .category-nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .category-btn {
+    width: 100%;
+  }
+
+  /* Stack input and button vertically */
+  .input-section {
+    display: inline;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  /* Stack task input and button on smaller screens */
+  .task-input {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  /* Full width for inputs on small screens */
+  .input-section input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust date and time pickers for smaller screens */
+  .date-time-pickers {
+    justify-content: space-between;
+  }
+
+  .date-time-pickers input {
+    margin-right: 10px;
+    width: 48%;
   }
 }

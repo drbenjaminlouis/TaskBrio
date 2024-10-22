@@ -1,0 +1,49 @@
+/* Styles for the overall footer container */
+.footer-container {
+    bottom: 0;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    background-color: #333; 
+    width: 100%;
+}
+
+/* Styles for the navigation section */
+.navigation {
+    display: flex; 
+    justify-content: center; 
+    padding: 1rem; 
+}
+
+/* Styles for the list of navigation links */
+.nav-list {
+    list-style: none; 
+    display: flex; 
+    gap: 1.5rem; 
+}
+
+/* Styles for the navigation link appearance */
+.nav-link {
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: normal; 
+    transition: color 0.3s; 
+}
+
+/* Styles for navigation link hover effect */
+.nav-link:hover {
+    color: #4caf50; 
+}
+
+/* Styles for footer text */
+.footer-text, a { 
+    color: #fff; 
+    text-align: center; 
+    padding: 1rem;
+    width: 100%;
+    margin: 0; 
+    text-decoration: none;
+}
+
+a{
+    padding: 0px;
+}
